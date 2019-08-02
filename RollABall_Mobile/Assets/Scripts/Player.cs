@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
         forca = Vector3.zero;
     }
 
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -28,9 +29,16 @@ public class Player : MonoBehaviour
 
 
         forca.x = movimento.x;
-        forca.z = movimento.y;
+        //forca.z = movimento.y;
         forca *= speed;
 
         rb.AddForce(forca);
+    }
+
+    void Cubo()
+    {
+        Vector3 v = new Vector3(Input.acceleration.x, 0, -Input.acceleration.z);
+        v *= 0.5f;
+        transform.Translate(v);
     }
 }
